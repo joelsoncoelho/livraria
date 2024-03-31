@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--EJB JAR-->
+<ejb-jar xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd" version="3.1">
+
+<!-- Define uma lista de interceptadores -->
+    <interceptors>
+        <interceptor>
+            <interceptor-class>
+                com.exemplo.projeto.ejbs.infra.interceptador.LogInterceptador
+            </interceptor-class>
+        </interceptor>
+    </interceptors>
+
+<!-- Define onde os interceptadores serão aplicados -->
+    <assembly-descriptor>
+        <interceptor-binding>
+     <!--    <ejb-name>AutorDao</ejb-name>   -->
+            <ejb-name>*</ejb-name>
+            <interceptor-class>
+                com.exemplo.projeto.ejbs.infra.interceptador.LogInterceptador
+            </interceptor-class>
+        </interceptor-binding>
+    </assembly-descriptor>
+</ejb-jar>
